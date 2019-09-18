@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if( request.message === "sending_document" ) {
+    if( request.message === "sending_recipe" ) {
       let recipe = request.recipe;
-      chrome.storage.local.set(JSON.parse(recipe), function() {
+      chrome.storage.local.set({recipe: recipe}, function() {
         console.log(request.recipe)
       });
     }
